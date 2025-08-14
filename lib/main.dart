@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/features/auth/presentation/views/login.dart';
+import 'package:training_app/features/auth/presentation/views/signIn.dart';
 
 void main() {
   // this is the entry point in the app (root)
@@ -14,7 +14,7 @@ class NewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: SignIn(),
     );
   }
 }
