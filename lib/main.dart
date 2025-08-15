@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
+import 'package:training_app/generated/l10n.dart';
 
 void main() {
   // this is the entry point in the app (root)
@@ -12,9 +14,16 @@ class NewApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+       localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
-      home: SignIn(),
+      home: const SignIn(),
     );
   }
 }
