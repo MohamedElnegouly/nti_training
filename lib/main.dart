@@ -15,13 +15,14 @@ class NewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      locale: const Locale('ar'), // Set the default locale to Arabic
       debugShowCheckedModeBanner: false,
       home: const SignIn(),
     );
