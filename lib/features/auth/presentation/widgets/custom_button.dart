@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  final String text;
+  const CustomButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,9 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-        child: const Text(
-          'تسجيل الدخول',
-          style: TextStyle(
+        child: Text(
+          text,
+          style: const TextStyle(
               fontSize: 16,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w600,

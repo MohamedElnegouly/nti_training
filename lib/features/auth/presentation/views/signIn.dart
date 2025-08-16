@@ -37,7 +37,7 @@ class SignIn extends StatelessWidget {
           SizedBox(
             height: 33,
           ),
-          CustomButton(),
+          CustomButton(text: 'تسجيل الدخول'),
           SizedBox(
             height: 33,
           ),
