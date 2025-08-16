@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 
 import '../widgets/CustomAppBar.dart';
+import '../widgets/custom_text.dart';
+import '../widgets/custom_text_after_button.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -10,37 +13,34 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      body: Column(
+      body: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CustomTextFormField(
+          SizedBox(
+            height: 24,
+          ),
+          CustomTextFormField(
             hintText: "البريد الالكترونى",
           ),
-          const SizedBox(
+          SizedBox(
             height: 16,
           ),
-          const CustomTextFormField(
+          CustomTextFormField(
             hintText: "كلمة المرور",
             suffixIcon: Icon(Icons.visibility),
           ),
-          const SizedBox(
+          SizedBox(
             height: 16,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: TextButton(
-              onPressed: () {},
-              child: const Text(
-                'نسيت كلمة المرور؟',
-                style: TextStyle(
-                  color: Color(0xFF2D9F5D) /* Green1-600 */,
-                  fontSize: 13,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+          CustomText(),
+          SizedBox(
+            height: 33,
           ),
+          CustomButton(),
+          SizedBox(
+            height: 33,
+          ),
+          CustomTextAfterButton()
         ],
       ),
     );

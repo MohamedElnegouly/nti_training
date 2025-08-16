@@ -21,10 +21,8 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-
-      //margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: TextFormField(
         key: fieldKey,
         onChanged: onChanged,
@@ -35,6 +33,11 @@ class CustomTextFormField extends StatelessWidget {
           border: borderDecoration(),
           focusedBorder: borderDecoration(),
           enabledBorder: borderDecoration(),
+          isDense: false,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 20,
+            horizontal: 16,
+          ),
         ),
         keyboardType: keyboardType,
       ),
@@ -43,8 +46,9 @@ class CustomTextFormField extends StatelessWidget {
 
   OutlineInputBorder borderDecoration() => OutlineInputBorder(
         borderSide: const BorderSide(
-          color: Color(0xFFE6E9E9), // Grayscale-950
-          width: 1.5,
+          width: 1,
+          strokeAlign: BorderSide.strokeAlignCenter,
+          color: Color(0xFFE6E9E9),
         ),
         borderRadius: BorderRadius.circular(4),
       );
