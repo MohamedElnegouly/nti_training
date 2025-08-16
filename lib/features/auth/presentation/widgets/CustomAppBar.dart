@@ -16,7 +16,7 @@ AppBar customAppBar() {
           ),
         ),
         const SizedBox(
-          width: 82,
+          width: 85,
         ),
         IconButton(
           onPressed: () {},

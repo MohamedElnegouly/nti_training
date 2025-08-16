@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/CustomAppBar.dart';
+
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
@@ -10,18 +12,5 @@ class SignIn extends StatelessWidget {
     );
   }
 
-  AppBar customAppBar() {
-    return AppBar(
-      title: const Text(
-        'تسجيل دخول',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Color(0xFF0C0D0D) /* Grayscale-950 */,
-          fontSize: 19,
-          fontFamily: 'Cairo',
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-    );
-  }
+
 }
