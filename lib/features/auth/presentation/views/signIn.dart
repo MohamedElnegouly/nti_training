@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
+import 'package:training_app/features/auth/presentation/widgets/custom_google_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 
 import '../widgets/CustomAppBar.dart';
@@ -40,7 +41,11 @@ class SignIn extends StatelessWidget {
           SizedBox(
             height: 33,
           ),
-          CustomTextAfterButton()
+          CustomTextAfterButton(),
+          SizedBox(
+            height: 16,
+          ),
+          CustomGoogleButton(),
         ],
       ),
     );
