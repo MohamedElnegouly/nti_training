@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/widgets/Or_line.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_google_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:training_app/generated/l10n.dart';
 
 import '../widgets/CustomAppBar.dart';
 import '../widgets/custom_text.dart';
@@ -15,7 +17,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(),
       body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           SizedBox(
             height: 24,
@@ -29,7 +31,7 @@ class SignIn extends StatelessWidget {
           ),
           CustomTextFormField(
             hintText: "كلمة المرور",
-            //suffixIcon: Icon(Icons.visibility),
+            suffixIcon: Icon(Icons.visibility),
           ),
           SizedBox(
             height: 16,
@@ -38,11 +40,15 @@ class SignIn extends StatelessWidget {
           SizedBox(
             height: 33,
           ),
-          CustomButton(text: 'تسجيل الدخول'),
+          CustomButton(text: "تسجيل الدخول"),
           SizedBox(
             height: 33,
           ),
           CustomTextAfterButton(),
+          SizedBox(
+            height: 29,
+          ),
+          OrLine(),
           SizedBox(
             height: 16,
           ),

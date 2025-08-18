@@ -22,8 +22,18 @@ class CustomGoogleButton extends StatelessWidget {
           ),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(
+              width: 30,
+              height: 30,
+              child: Image.asset(
+                'lib/core/assets/logo.png',
+              ),
+            ),
+            const SizedBox(
+              width: 50,
+            ),
             const Text(
               ' تسجيل بواسطة جوجل ',
               style: TextStyle(
@@ -31,16 +41,6 @@ class CustomGoogleButton extends StatelessWidget {
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w600,
                   color: Colors.black),
-            ),
-            const SizedBox(
-              width: 50,
-            ),
-            SizedBox(
-              width: 30,
-              height: 30,
-              child: Image.asset(
-                'lib/core/assets/logo.png',
-              ),
             ),
           ],
         ),

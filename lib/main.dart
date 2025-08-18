@@ -22,7 +22,7 @@ class NewApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale('en'),
+      locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       home: const SignIn(),
     );

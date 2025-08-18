@@ -2,9 +2,9 @@
      "title": "تسجيل الدخول",
      "email" : "البريد الالكترونى",
     "Password" : "كلمة المرور",
-    "Forget Password" : "نسيت كلمة المرور",
-    "Sign In" : "تسجيل الدخول",
-    "You Have No Account Yet ?": "لا تمتلك حساب ",
+    "ForgetPassword" : "نسيت كلمة المرور",
+    "SignIn" : "تسجيل الدخول",
+    "YouHaveNoAccountYet": "لا تمتلك حساب ",
     "Cteate One" : "قم بإنشاء حساب",
     "Or" : "أو",
     "Login With Google": "تسجيل باستخدام جوجل"

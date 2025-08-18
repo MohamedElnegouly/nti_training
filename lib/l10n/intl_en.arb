@@ -2,9 +2,9 @@
     "title": "Login",
     "email" : "Email",
     "Password" : "Passward",
-    "Forget Password" : "Forget Passward",
-    "Sign In" : "Sign In",
-    "You Have No Account Yet ?": "You Have No Account Yet ?",
+    "ForgetPassword" : "Forget Passward",
+    "SignIn" : "Sign In",
+    "YouHaveNoAccountYet": "You Have No Account Yet ?",
     "Cteate One" : "Create One",
     "Or" : "Or",
     "Login With Google": "Login With Google"

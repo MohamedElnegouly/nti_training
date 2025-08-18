@@ -28,10 +28,9 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -70,11 +69,30 @@ class S {
     return Intl.message('Passward', name: 'Password', desc: '', args: []);
   }
 
-  // skipped getter for the 'Forget Password' key
+  /// `Forget Passward`
+  String get ForgetPassword {
+    return Intl.message(
+      'Forget Passward',
+      name: 'ForgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Sign In' key
+  /// `Sign In`
+  String get SignIn {
+    return Intl.message('Sign In', name: 'SignIn', desc: '', args: []);
+  }
 
-  // skipped getter for the 'You Have No Account Yet ?' key
+  /// `You Have No Account Yet ?`
+  String get YouHaveNoAccountYet {
+    return Intl.message(
+      'You Have No Account Yet ?',
+      name: 'YouHaveNoAccountYet',
+      desc: '',
+      args: [],
+    );
+  }
 
   // skipped getter for the 'Cteate One' key
 
