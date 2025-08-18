@@ -22,13 +22,14 @@ class SignIn extends StatelessWidget {
           ),
           CustomTextFormField(
             hintText: "البريد الالكترونى",
+            keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(
             height: 16,
           ),
           CustomTextFormField(
             hintText: "كلمة المرور",
-            suffixIcon: Icon(Icons.visibility),
+            //suffixIcon: Icon(Icons.visibility),
           ),
           SizedBox(
             height: 16,

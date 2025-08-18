@@ -54,13 +54,46 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Login`
+  String get title {
+    return Intl.message('Login', name: 'title', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Passward`
+  String get Password {
+    return Intl.message('Passward', name: 'Password', desc: '', args: []);
+  }
+
+  // skipped getter for the 'Forget Password' key
+
+  // skipped getter for the 'Sign In' key
+
+  // skipped getter for the 'You Have No Account Yet ?' key
+
+  // skipped getter for the 'Cteate One' key
+
+  /// `Or`
+  String get Or {
+    return Intl.message('Or', name: 'Or', desc: '', args: []);
+  }
+
+  // skipped getter for the 'Login With Google' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
-    return const <Locale>[Locale.fromSubtags(languageCode: 'en')];
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
+    ];
   }
 
   @override

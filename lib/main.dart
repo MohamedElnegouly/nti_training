@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/generated/l10n.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   // this is the entry point in the app (root)
@@ -22,7 +22,7 @@ class NewApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale('ar'), // Set the default locale to Arabic
+      locale: const Locale('en'),
       debugShowCheckedModeBanner: false,
       home: const SignIn(),
     );
