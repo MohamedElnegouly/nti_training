@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
+   final bool? obscureText;
 
   const CustomTextFormField({
     super.key,
@@ -15,8 +16,9 @@ class CustomTextFormField extends StatelessWidget {
  required this.hintText,
     this.prefixIcon,
     this.suffixIcon,
-    this.keyboardType, 
-  });
+    this.keyboardType,
+    this.obscureText, 
+     });
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         key: fieldKey,
         onChanged: onChanged,
+        obscureText: obscureText ?? false,
         decoration: InputDecoration(
           hintText: hintText,
           prefixIcon: prefixIcon,

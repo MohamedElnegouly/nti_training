@@ -9,9 +9,15 @@ import '../widgets/CustomAppBar.dart';
 import '../widgets/custom_text.dart';
 import '../widgets/custom_text_after_button.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,29 +36,37 @@ class SignIn extends StatelessWidget {
             height: 16,
           ),
           CustomTextFormField(
-            hintText:S.of(context).password,
-            suffixIcon: const Icon(Icons.visibility),
+            hintText: S.of(context).password,
+            suffixIcon: IconButton(
+              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _isObscure = !_isObscure;
+                });
+              },
+            ),
+            obscureText: _isObscure,
           ),
           const SizedBox(
             height: 16,
           ),
           const CustomText(),
-         const SizedBox(
+          const SizedBox(
             height: 33,
           ),
           CustomButton(text: S.of(context).login),
-         const SizedBox(
+          const SizedBox(
             height: 33,
           ),
-         const CustomTextAfterButton(),
+          const CustomTextAfterButton(),
           const SizedBox(
             height: 29,
           ),
-         const  OrLine(),
+          const OrLine(),
           const SizedBox(
             height: 16,
           ),
-         const  CustomGoogleButton(),
+          const CustomGoogleButton(),
         ],
       ),
     );
