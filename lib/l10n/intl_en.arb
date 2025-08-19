@@ -1,12 +1,11 @@
 {
-    "title": "Login",
-    "email" : "Email",
-    "Password" : "Passward",
-    "ForgetPassword" : "Forget Passward",
-    "SignIn" : "Sign In",
-    "YouHaveNoAccountYet": "You Have No Account Yet ?",
-    "Cteate One" : "Create One",
-    "Or" : "Or",
-    "Login With Google": "Login With Google"
-    
+    "title" : "Login",
+    "email":"Email",
+    "password" : "Password",
+    "forget":"Forget Password ?",
+    "login":"Login",
+    "notHaveAccount":"Don't have an account ?",
+    "getOne":"Get One",
+    "Or":"Or",
+    "loginWith":"Login with Google"
 }

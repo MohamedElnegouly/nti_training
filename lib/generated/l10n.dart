@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -64,44 +65,55 @@ class S {
     return Intl.message('Email', name: 'email', desc: '', args: []);
   }
 
-  /// `Passward`
-  String get Password {
-    return Intl.message('Passward', name: 'Password', desc: '', args: []);
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
-  /// `Forget Passward`
-  String get ForgetPassword {
+  /// `Forget Password ?`
+  String get forget {
     return Intl.message(
-      'Forget Passward',
-      name: 'ForgetPassword',
+      'Forget Password ?',
+      name: 'forget',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sign In`
-  String get SignIn {
-    return Intl.message('Sign In', name: 'SignIn', desc: '', args: []);
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
-  /// `You Have No Account Yet ?`
-  String get YouHaveNoAccountYet {
+  /// `Don't have an account ?`
+  String get notHaveAccount {
     return Intl.message(
-      'You Have No Account Yet ?',
-      name: 'YouHaveNoAccountYet',
+      'Don\'t have an account ?',
+      name: 'notHaveAccount',
       desc: '',
       args: [],
     );
   }
 
-  // skipped getter for the 'Cteate One' key
+  /// `Get One`
+  String get getOne {
+    return Intl.message('Get One', name: 'getOne', desc: '', args: []);
+  }
 
   /// `Or`
   String get Or {
     return Intl.message('Or', name: 'Or', desc: '', args: []);
   }
 
-  // skipped getter for the 'Login With Google' key
+  /// `Login with Google`
+  String get loginWith {
+    return Intl.message(
+      'Login with Google',
+      name: 'loginWith',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/generated/l10n.dart';
 
 class CustomTextAfterButton extends StatelessWidget {
   const CustomTextAfterButton({
@@ -10,9 +11,9 @@ class CustomTextAfterButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
-          'لا تمتلك حساب ؟',
-          style: TextStyle(
+        Text(
+          S.of(context).notHaveAccount,
+          style: const TextStyle(
             fontSize: 14,
             fontFamily: 'Cairo',
             fontWeight: FontWeight.w600,
@@ -24,9 +25,9 @@ class CustomTextAfterButton extends StatelessWidget {
           onTap: () {
             debugPrint("اضغطت على انشاء حساب ✅");
           },
-          child: const Text(
-            'قم بإنشاء حساب',
-            style: TextStyle(
+          child: Text(
+            S.of(context).getOne,
+            style: const TextStyle(
               fontSize: 14,
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w600,

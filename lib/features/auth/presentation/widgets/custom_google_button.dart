@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/generated/l10n.dart';
 
 class CustomGoogleButton extends StatelessWidget {
   const CustomGoogleButton({super.key});
@@ -34,9 +35,9 @@ class CustomGoogleButton extends StatelessWidget {
             const SizedBox(
               width: 50,
             ),
-            const Text(
-              ' تسجيل بواسطة جوجل ',
-              style: TextStyle(
+            Text(
+              S.of(context).loginWith,
+              style: const TextStyle(
                   fontSize: 16,
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w600,

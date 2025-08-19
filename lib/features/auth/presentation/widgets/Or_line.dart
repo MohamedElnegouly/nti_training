@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/generated/l10n.dart';
 
 class OrLine extends StatelessWidget {
   const OrLine({super.key});
@@ -43,10 +44,10 @@ class OrLine extends StatelessWidget {
                 Positioned(
                   left: MediaQuery.of(context).size.width * 0.44,
                   top: MediaQuery.of(context).size.height * 0.02,
-                  child: const Text(
-                    'أو',
+                  child:  Text(
+                   S.of(context).Or ,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF0C0D0D),
                       fontSize: 16,
                       fontFamily: 'Cairo',

@@ -16,43 +16,43 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           CustomTextFormField(
-            hintText: "البريد الالكترونى",
+            hintText: S.of(context).email,
             keyboardType: TextInputType.emailAddress,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           CustomTextFormField(
-            hintText: "كلمة المرور",
-            suffixIcon: Icon(Icons.visibility),
+            hintText:S.of(context).password,
+            suffixIcon: const Icon(Icons.visibility),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          CustomText(),
-          SizedBox(
+          const CustomText(),
+         const SizedBox(
             height: 33,
           ),
-          CustomButton(text: "تسجيل الدخول"),
-          SizedBox(
+          CustomButton(text: S.of(context).login),
+         const SizedBox(
             height: 33,
           ),
-          CustomTextAfterButton(),
-          SizedBox(
+         const CustomTextAfterButton(),
+          const SizedBox(
             height: 29,
           ),
-          OrLine(),
-          SizedBox(
+         const  OrLine(),
+          const SizedBox(
             height: 16,
           ),
-          CustomGoogleButton(),
+         const  CustomGoogleButton(),
         ],
       ),
     );
