@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-AppBar customAppBar() {
+AppBar customAppBar(String title) {
   return AppBar(
     centerTitle: true,
     leading: IconButton(
@@ -10,10 +10,10 @@ AppBar customAppBar() {
         textDirection: TextDirection.rtl,
       ),
     ),
-    title: const Text(
-      'تسجيل دخول',
+    title:  Text(
+      title,
       //textAlign: TextAlign.center,
-      style: TextStyle(
+      style:const TextStyle(
         color: Color(0xFF0C0D0D) /* Grayscale-950 */,
         fontSize: 19,
         fontFamily: 'Cairo',

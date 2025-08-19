@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Or": MessageLookupByLibrary.simpleMessage("Or"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forget": MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+    "fullName": MessageLookupByLibrary.simpleMessage("full Name"),
     "getOne": MessageLookupByLibrary.simpleMessage("Get One"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginWith": MessageLookupByLibrary.simpleMessage("Login with Google"),
@@ -33,5 +34,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "title": MessageLookupByLibrary.simpleMessage("Login"),
+    "titleSignUp": MessageLookupByLibrary.simpleMessage("New Account"),
   };
 }

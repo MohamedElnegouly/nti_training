@@ -25,11 +25,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "Or": MessageLookupByLibrary.simpleMessage("أو"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
     "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور ؟"),
+    "fullName": MessageLookupByLibrary.simpleMessage("الاسم كامل"),
     "getOne": MessageLookupByLibrary.simpleMessage("قم بإنشاء حساب "),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginWith": MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
     "notHaveAccount": MessageLookupByLibrary.simpleMessage("لا تمتلك حساب ؟"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "title": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "titleSignUp": MessageLookupByLibrary.simpleMessage("حساب جديد"),
   };
 }

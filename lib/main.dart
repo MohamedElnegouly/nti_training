@@ -3,6 +3,8 @@ import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'features/auth/presentation/views/signUp.dart';
+
 void main() {
   // this is the entry point in the app (root)
   runApp(const NewApp());
@@ -24,7 +26,7 @@ class NewApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
-      home: const SignIn(),
+      home: const Signup(),
     );
   }
 }

@@ -21,7 +21,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: customAppBar(S.of(context).title),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

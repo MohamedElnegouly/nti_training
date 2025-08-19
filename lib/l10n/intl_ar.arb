@@ -7,5 +7,7 @@
     "notHaveAccount":"لا تمتلك حساب ؟",
     "getOne":"قم بإنشاء حساب ",
     "Or":"أو",
-    "loginWith":"تسجيل بواسطة جوجل"
+    "loginWith":"تسجيل بواسطة جوجل",
+    "titleSignUp":"حساب جديد",
+    "fullName":"الاسم كامل"
 }

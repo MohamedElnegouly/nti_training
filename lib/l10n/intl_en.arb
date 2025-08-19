@@ -7,5 +7,7 @@
     "notHaveAccount":"Don't have an account ?",
     "getOne":"Get One",
     "Or":"Or",
-    "loginWith":"Login with Google"
+    "loginWith":"Login with Google",
+    "titleSignUp":"New Account",
+    "fullName":"full Name"
 }
