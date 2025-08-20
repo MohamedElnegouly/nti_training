@@ -27,6 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "PrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "الشروط والاحكام الخاصه بنا",
     ),
+    "YouHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "تمتلك حساب بالفعل؟",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكترونى"),
     "forget": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور ؟"),
     "fullName": MessageLookupByLibrary.simpleMessage("الاسم كامل"),

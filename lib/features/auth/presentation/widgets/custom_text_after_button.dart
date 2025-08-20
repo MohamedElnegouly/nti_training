@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:training_app/generated/l10n.dart';
 
 class CustomTextAfterButton extends StatelessWidget {
+  final String text1;
+  final String text2;
   const CustomTextAfterButton({
     super.key,
+    required this.text1,
+    required this.text2,
   });
 
   @override
@@ -12,7 +16,7 @@ class CustomTextAfterButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          S.of(context).notHaveAccount,
+          text1,
           style: const TextStyle(
             fontSize: 14,
             fontFamily: 'Cairo',
@@ -26,7 +30,7 @@ class CustomTextAfterButton extends StatelessWidget {
             debugPrint("اضغطت على انشاء حساب ✅");
           },
           child: Text(
-            S.of(context).getOne,
+            text2,
             style: const TextStyle(
               fontSize: 14,
               fontFamily: 'Cairo',

@@ -154,6 +154,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Have An Account Already? `
+  String get YouHaveAccount {
+    return Intl.message(
+      'Have An Account Already? ',
+      name: 'YouHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -12,5 +12,6 @@
     "fullName":"الاسم كامل",
     "termsAndConditions": "من خلال انشاء حساب , فانك توافق على ",
     "PrivacyPolicy":"الشروط والاحكام الخاصه بنا",
-    "ButtonSignUp":"إنشاء حساب جديد"
+    "ButtonSignUp":"إنشاء حساب جديد",
+    "YouHaveAccount":"تمتلك حساب بالفعل؟"
 }

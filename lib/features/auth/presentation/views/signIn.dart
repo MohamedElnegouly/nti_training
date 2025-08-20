@@ -58,7 +58,10 @@ class _SignInState extends State<SignIn> {
           const SizedBox(
             height: 33,
           ),
-          const CustomTextAfterButton(),
+           CustomTextAfterButton(
+            text1: S.of(context).notHaveAccount,
+            text2: S.of(context).getOne,
+            ),
           const SizedBox(
             height: 29,
           ),
