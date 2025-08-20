@@ -26,7 +26,7 @@ class NewApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
-      home: const Signup(),
+      home: const SignIn(),
     );
   }
 }

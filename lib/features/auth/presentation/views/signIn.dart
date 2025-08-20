@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/views/signUp.dart';
 import 'package:training_app/features/auth/presentation/widgets/Or_line.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_google_button.dart';
@@ -21,56 +22,67 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(S.of(context).title),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const SizedBox(
-            height: 24,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).email,
-            keyboardType: TextInputType.emailAddress,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).password,
-            suffixIcon: IconButton(
-              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+      appBar: customAppBar(S.of(context).title, () {}),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            const SizedBox(
+              height: 24,
+            ),
+            CustomTextFormField(
+              hintText: S.of(context).email,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormField(
+              hintText: S.of(context).password,
+              suffixIcon: IconButton(
+                icon:
+                    Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure;
+                  });
+                },
+              ),
+              obscureText: _isObscure,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const CustomText(),
+            const SizedBox(
+              height: 33,
+            ),
+            CustomButton(
+              text: S.of(context).login,
               onPressed: () {
-                setState(() {
-                  _isObscure = !_isObscure;
-                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Signup()),
+                );
               },
             ),
-            obscureText: _isObscure,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const CustomText(),
-          const SizedBox(
-            height: 33,
-          ),
-          CustomButton(text: S.of(context).login),
-          const SizedBox(
-            height: 33,
-          ),
-           CustomTextAfterButton(
-            text1: S.of(context).notHaveAccount,
-            text2: S.of(context).getOne,
+            const SizedBox(
+              height: 33,
             ),
-          const SizedBox(
-            height: 29,
-          ),
-          const OrLine(),
-          const SizedBox(
-            height: 16,
-          ),
-          const CustomGoogleButton(),
-        ],
+            CustomTextAfterButton(
+              text1: S.of(context).notHaveAccount,
+              text2: S.of(context).getOne,
+            ),
+            const SizedBox(
+              height: 29,
+            ),
+            const OrLine(),
+            const SizedBox(
+              height: 16,
+            ),
+            const CustomGoogleButton(),
+          ],
+        ),
       ),
     );
   }

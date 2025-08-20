@@ -13,5 +13,9 @@
     "termsAndConditions": "By creating an account, you agree to ",
     "PrivacyPolicy":"our Terms and Conditions",
     "ButtonSignUp":"Creat New Account",
-    "YouHaveAccount":"Have An Account Already? "
+    "YouHaveAccount":"Have An Account Already? ",
+    "ForgetPasswordTitle":"Password Editing ",
+    "PhoneNumber":"Phone Number",
+     "warning":"Don't worry, just enter your phone number and we will send you a verification code.",
+     "ForgetPasswordButton":"Forget Password"
 }

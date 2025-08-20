@@ -164,6 +164,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Password Editing `
+  String get ForgetPasswordTitle {
+    return Intl.message(
+      'Password Editing ',
+      name: 'ForgetPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get PhoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'PhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't worry, just enter your phone number and we will send you a verification code.`
+  String get warning {
+    return Intl.message(
+      'Don\'t worry, just enter your phone number and we will send you a verification code.',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget Password`
+  String get ForgetPasswordButton {
+    return Intl.message(
+      'Forget Password',
+      name: 'ForgetPasswordButton',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

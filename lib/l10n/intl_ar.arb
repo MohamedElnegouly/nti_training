@@ -13,5 +13,9 @@
     "termsAndConditions": "من خلال انشاء حساب , فانك توافق على ",
     "PrivacyPolicy":"الشروط والاحكام الخاصه بنا",
     "ButtonSignUp":"إنشاء حساب جديد",
-    "YouHaveAccount":"تمتلك حساب بالفعل؟"
+    "YouHaveAccount":"تمتلك حساب بالفعل؟",
+    "ForgetPasswordTitle":"نسيان كلمة المرور",
+    "PhoneNumber":"رقم الهاتف",
+    "warning":"لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.",
+    "ForgetPasswordButton":"نسيت كلمة المرور"
 }

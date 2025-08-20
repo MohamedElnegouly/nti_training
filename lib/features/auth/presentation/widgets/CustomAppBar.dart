@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-AppBar customAppBar(String title) {
+AppBar customAppBar(String title , void Function()? onPressed ) {
   return AppBar(
     centerTitle: true,
     leading: IconButton(
-      onPressed: () {},
+      onPressed: onPressed,
       icon: const Icon(
         Icons.arrow_back_ios,
         textDirection: TextDirection.rtl,

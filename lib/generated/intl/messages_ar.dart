@@ -23,7 +23,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "ButtonSignUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
+    "ForgetPasswordButton": MessageLookupByLibrary.simpleMessage(
+      "نسيت كلمة المرور",
+    ),
+    "ForgetPasswordTitle": MessageLookupByLibrary.simpleMessage(
+      "نسيان كلمة المرور",
+    ),
     "Or": MessageLookupByLibrary.simpleMessage("أو"),
+    "PhoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "PrivacyPolicy": MessageLookupByLibrary.simpleMessage(
       "الشروط والاحكام الخاصه بنا",
     ),
@@ -43,5 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "title": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "titleSignUp": MessageLookupByLibrary.simpleMessage("حساب جديد"),
+    "warning": MessageLookupByLibrary.simpleMessage(
+      "لا تقلق ، ما عليك سوى كتابة رقم هاتفك وسنرسل رمز التحقق.",
+    ),
   };
 }

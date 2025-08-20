@@ -4,7 +4,6 @@ import 'package:training_app/features/auth/presentation/widgets/custom_button.da
 import 'package:training_app/features/auth/presentation/widgets/custom_text_after_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
-
 import '../widgets/CustomCheckBox.dart';
 
 class Signup extends StatefulWidget {
@@ -20,7 +19,9 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(S.of(context).titleSignUp),
+      appBar: customAppBar(S.of(context).titleSignUp, () {
+        Navigator.pop(context);
+      }),
       body: Column(
         children: [
           const SizedBox(
@@ -44,7 +45,8 @@ class _SignupState extends State<Signup> {
             hintText: S.of(context).password,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: IconButton(
-              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              icon:
+                  Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
               onPressed: () {
                 setState(() {
                   _isObscure = !_isObscure;
@@ -58,7 +60,10 @@ class _SignupState extends State<Signup> {
           ),
           const Customcheckbox(),
           const SizedBox(height: 16),
-          CustomButton(text: S.of(context).ButtonSignUp),
+          CustomButton(
+            text: S.of(context).ButtonSignUp,
+            onPressed: () {},
+          ),
           const SizedBox(height: 16),
           CustomTextAfterButton(
             text1: S.of(context).YouHaveAccount,

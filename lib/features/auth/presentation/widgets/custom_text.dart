@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/views/forgetPassword.dart';
 import 'package:training_app/generated/l10n.dart';
 
 class CustomText extends StatelessWidget {
@@ -12,9 +13,10 @@ class CustomText extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16, right: 16),
       child: GestureDetector(
         onTap: () {
-          debugPrint("نسيت كلمة المرور اضغطت عليها ✅");
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Forgetpassword()));
         },
-        child:  Text(
+        child: Text(
           S.of(context).forget,
           style: const TextStyle(
             color: Color(0xFF2D9F5D) /* Green1-600 */,
