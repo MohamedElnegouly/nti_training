@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training_app/features/auth/presentation/widgets/CustomAppBar.dart';
+import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
 
@@ -55,6 +56,8 @@ class _SignupState extends State<Signup> {
             height: 16,
           ),
           const Customcheckbox(),
+          const SizedBox(height: 16),
+          CustomButton(text: S.of(context).ButtonSignUp),
         ],
       ),
     );

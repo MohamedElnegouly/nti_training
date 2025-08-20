@@ -11,5 +11,6 @@
     "titleSignUp":"New Account",
     "fullName":"full Name",
     "termsAndConditions": "By creating an account, you agree to ",
-    "PrivacyPolicy":"our Terms and Conditions"
+    "PrivacyPolicy":"our Terms and Conditions",
+    "ButtonSignUp":"Creat New Account"
 }

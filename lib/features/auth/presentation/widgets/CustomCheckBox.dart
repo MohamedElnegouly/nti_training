@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:training_app/generated/l10n.dart';
 
@@ -16,6 +17,7 @@ class _CustomcheckboxState extends State<Customcheckbox> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Checkbox(
+          activeColor: const Color(0xFF1B5E37),
           value: isChecked,
           onChanged: (_) {
             setState(() {
@@ -37,14 +39,31 @@ class _CustomcheckboxState extends State<Customcheckbox> {
                 TextSpan(
                   text: S.of(context).termsAndConditions,
                   style: const TextStyle(
-                    color: Color(0xFF949D9E), // الرمادي
+                    color: Color(0xFF949D9E),
                   ),
                 ),
                 TextSpan(
                   text: S.of(context).PrivacyPolicy,
                   style: const TextStyle(
-                    color: Color(0xFF2D9F5D), // الأخضر
+                    color: Color(0xFF2D9F5D),
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      // Handle tap on Privacy Policy
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Color(0xFF1B5E37),
+                          content: Text('The Privacy Policy ',
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white)),
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(4),
+                            topRight: Radius.circular(4),
+                          )),
+                        ),
+                      );
+                    },
                 ),
               ],
             ),

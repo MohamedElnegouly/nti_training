@@ -144,6 +144,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Creat New Account`
+  String get ButtonSignUp {
+    return Intl.message(
+      'Creat New Account',
+      name: 'ButtonSignUp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
