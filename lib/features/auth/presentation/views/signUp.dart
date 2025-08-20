@@ -3,6 +3,8 @@ import 'package:training_app/features/auth/presentation/widgets/CustomAppBar.dar
 import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
 
+import '../widgets/CustomCheckBox.dart';
+
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
@@ -12,7 +14,7 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   bool _isObscure = true;
-  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,14 +54,7 @@ class _SignupState extends State<Signup> {
           const SizedBox(
             height: 16,
           ),
-          Checkbox(
-            value: isChecked,
-            onChanged: (_) {
-              setState(() {
-                isChecked = !isChecked;
-              });
-            },
-          ),
+          const Customcheckbox(),
         ],
       ),
     );

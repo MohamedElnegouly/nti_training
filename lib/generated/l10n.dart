@@ -124,6 +124,26 @@ class S {
   String get fullName {
     return Intl.message('full Name', name: 'fullName', desc: '', args: []);
   }
+
+  /// `By creating an account, you agree to `
+  String get termsAndConditions {
+    return Intl.message(
+      'By creating an account, you agree to ',
+      name: 'termsAndConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `our Terms and Conditions`
+  String get PrivacyPolicy {
+    return Intl.message(
+      'our Terms and Conditions',
+      name: 'PrivacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

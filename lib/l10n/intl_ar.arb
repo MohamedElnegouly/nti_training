@@ -9,5 +9,7 @@
     "Or":"أو",
     "loginWith":"تسجيل بواسطة جوجل",
     "titleSignUp":"حساب جديد",
-    "fullName":"الاسم كامل"
+    "fullName":"الاسم كامل",
+    "termsAndConditions": "من خلال انشاء حساب , فانك توافق على ",
+    "PrivacyPolicy":"الشروط والاحكام الخاصه بنا"
 }

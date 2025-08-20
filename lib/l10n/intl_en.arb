@@ -9,5 +9,7 @@
     "Or":"Or",
     "loginWith":"Login with Google",
     "titleSignUp":"New Account",
-    "fullName":"full Name"
+    "fullName":"full Name",
+    "termsAndConditions": "By creating an account, you agree to ",
+    "PrivacyPolicy":"our Terms and Conditions"
 }
