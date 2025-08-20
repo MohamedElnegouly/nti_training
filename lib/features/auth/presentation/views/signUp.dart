@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/features/auth/presentation/widgets/CustomAppBar.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/widgets/custom_text_after_button.dart';
@@ -45,8 +46,7 @@ class _SignupState extends State<Signup> {
             hintText: S.of(context).password,
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: IconButton(
-              icon:
-                  Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
               onPressed: () {
                 setState(() {
                   _isObscure = !_isObscure;
@@ -68,6 +68,10 @@ class _SignupState extends State<Signup> {
           CustomTextAfterButton(
             text1: S.of(context).YouHaveAccount,
             text2: S.of(context).login,
+            onTap: () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const SignIn()),
+            ),
           ),
         ],
       ),

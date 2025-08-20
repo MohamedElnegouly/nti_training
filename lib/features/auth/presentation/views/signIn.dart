@@ -59,12 +59,7 @@ class _SignInState extends State<SignIn> {
             ),
             CustomButton(
               text: S.of(context).login,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Signup()),
-                );
-              },
+              onPressed: () {},
             ),
             const SizedBox(
               height: 33,
@@ -72,6 +67,10 @@ class _SignInState extends State<SignIn> {
             CustomTextAfterButton(
               text1: S.of(context).notHaveAccount,
               text2: S.of(context).getOne,
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Signup()),
+              ),
             ),
             const SizedBox(
               height: 29,

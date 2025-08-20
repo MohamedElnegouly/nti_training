@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/generated/l10n.dart';
 
 class CustomTextAfterButton extends StatelessWidget {
   final String text1;
   final String text2;
+  final void Function()? onTap;
   const CustomTextAfterButton({
     super.key,
     required this.text1,
     required this.text2,
+    this.onTap,
   });
 
   @override
@@ -26,9 +27,7 @@ class CustomTextAfterButton extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         GestureDetector(
-          onTap: () {
-            debugPrint("اضغطت على انشاء حساب ✅");
-          },
+          onTap: onTap,
           child: Text(
             text2,
             style: const TextStyle(
