@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'features/auth/presentation/views/signUp.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // this is the entry point in the app (root)
   runApp(const NewApp());
 }
