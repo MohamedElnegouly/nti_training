@@ -17,13 +17,18 @@ class FirebaseAuthService {
       //to know what is the Exception
       log('this Exception come from createUserWithEmailAndPassword${e.toString()}');
       if (e.code == 'weak-password') {
-        throw CustomException(message: "كلمة مرور ضعيفه");
+        throw CustomException(message: 'كلمه المرور ضعيفه');
       } else if (e.code == 'email-already-in-use') {
-        throw CustomException(message: "البريد مستخدم بالفعل");
+        throw CustomException(message: 'الايميل موجود');
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(message: 'قم بالاتصال بالانترنت');
+      } else {
+        throw CustomException(message: 'حدث خطأ حاول لاحقا');
       }
     } catch (e) {
-      throw CustomException(message: "حدث خطأ غير متوقع: $e");
+      log('Excaption  in CreateUserWithEmailAndPassword. ${e.toString()}');
+
+      throw CustomException(message: 'حدث خطأ حاول لاحقا');
     }
-    throw CustomException(message: "حدث خطأ غير متوقع أثناء إنشاء المستخدم.");
   }
 }
