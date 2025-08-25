@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:training_app/core/errors/custom_Exception.dart';
 
@@ -12,6 +14,8 @@ class FirebaseAuthService {
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
+      //to know what is the Exception
+      log('this Exception come from createUserWithEmailAndPassword${e.toString()}');
       if (e.code == 'weak-password') {
         throw CustomException(message: "كلمة مرور ضعيفه");
       } else if (e.code == 'email-already-in-use') {

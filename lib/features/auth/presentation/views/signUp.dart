@@ -15,7 +15,12 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  bool _isObscure = true;
+  //see state this widget
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  //refused sign up button until all data is valid
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  late String email, password, name;
+  late bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -23,57 +28,60 @@ class _SignupState extends State<Signup> {
       appBar: customAppBar(S.of(context).titleSignUp, () {
         Navigator.pop(context);
       }),
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 24,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).fullName,
-            keyboardType: TextInputType.name,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).email,
-            keyboardType: TextInputType.emailAddress,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).password,
-            keyboardType: TextInputType.visiblePassword,
-            suffixIcon: IconButton(
-              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  _isObscure = !_isObscure;
-                });
-              },
+      body: Form(
+        key: formKey,
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 24,
             ),
-            obscureText: _isObscure,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const Customcheckbox(),
-          const SizedBox(height: 16),
-          CustomButton(
-            text: S.of(context).ButtonSignUp,
-            onPressed: () {},
-          ),
-          const SizedBox(height: 16),
-          CustomTextAfterButton(
-            text1: S.of(context).YouHaveAccount,
-            text2: S.of(context).login,
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const SignIn()),
+            CustomTextFormField(
+              hintText: S.of(context).fullName,
+              keyboardType: TextInputType.name,
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormField(
+              hintText: S.of(context).email,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormField(
+              hintText: S.of(context).password,
+              keyboardType: TextInputType.visiblePassword,
+              suffixIcon: IconButton(
+                icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    isObscure = !isObscure;
+                  });
+                },
+              ),
+              obscureText: isObscure,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const Customcheckbox(),
+            const SizedBox(height: 16),
+            CustomButton(
+              text: S.of(context).ButtonSignUp,
+              onPressed: () {},
+            ),
+            const SizedBox(height: 16),
+            CustomTextAfterButton(
+              text1: S.of(context).YouHaveAccount,
+              text2: S.of(context).login,
+              onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const SignIn()),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

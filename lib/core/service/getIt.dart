@@ -1,10 +1,15 @@
 import 'package:get_it/get_it.dart';
+import 'package:training_app/core/service/firebase_auth.dart';
+import 'package:training_app/features/auth/Data/Models/repo/auth_repo_implements.dart';
+import 'package:training_app/features/auth/Domin/repo/auth_repo.dart';
 
 final getIt = GetIt.instance;
 
 void setup() {
-  getIt.registerSingleton<AppModel>(AppModel());
+  getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
+  
+  getIt.registerSingleton<AuthRepo>(AuthRepoImplements(
+     getIt<FirebaseAuthService>()
+  ));
 
-// Alternatively you could write it if you don't like global variables
-  GetIt.I.registerSingleton<AppModel>(AppModel());
 }

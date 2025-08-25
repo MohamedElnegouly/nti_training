@@ -6,12 +6,14 @@ import 'package:training_app/features/auth/Data/Models/user_model.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
 import 'package:training_app/features/auth/Domin/repo/auth_repo.dart';
 
-class AuthRepoImplements implements AuthRepo {
+class AuthRepoImplements extends AuthRepo {
+  FirebaseAuthService firebaseAuthService;
+  AuthRepoImplements(this.firebaseAuthService);
+
   @override
-  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword (
-      {required String email, required String password}) async{
+  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
-      var firebaseAuthService = FirebaseAuthService();
       var user = await firebaseAuthService.createUserWithEmailAndPassword(
           emailAddress: email, password: password);
       UserModel userModel = UserModel.fromfirebaseUser(user);
