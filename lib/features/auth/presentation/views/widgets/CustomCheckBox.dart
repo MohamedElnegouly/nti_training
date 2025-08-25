@@ -3,14 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:training_app/generated/l10n.dart';
 
 class Customcheckbox extends StatefulWidget {
-  const Customcheckbox({super.key});
+  final bool isChecked;              // الحالة اللى هتيجى من الأب
+  final ValueChanged<bool>? onChanged; // كول باك للأب (اختيارى)
+
+  const Customcheckbox({
+    super.key,
+    this.isChecked = false, // القيمة الافتراضية false
+    this.onChanged,
+  });
 
   @override
   State<Customcheckbox> createState() => _CustomcheckboxState();
 }
 
 class _CustomcheckboxState extends State<Customcheckbox> {
-  bool isChecked = false;
+  late bool _isChecked; // حالة داخلية
+
+  @override
+  void initState() {
+    super.initState();
+    _isChecked = widget.isChecked; // أول قيمة من الـ constructor
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,11 +32,12 @@ class _CustomcheckboxState extends State<Customcheckbox> {
       children: [
         Checkbox(
           activeColor: const Color(0xFF1B5E37),
-          value: isChecked,
-          onChanged: (_) {
+          value: _isChecked,
+          onChanged: (value) {
             setState(() {
-              isChecked = !isChecked;
+              _isChecked = value ?? false;
             });
+            widget.onChanged?.call(_isChecked); // نرجع القيمة للأب
           },
         ),
         const SizedBox(width: 5),
@@ -49,18 +64,13 @@ class _CustomcheckboxState extends State<Customcheckbox> {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      // Handle tap on Privacy Policy
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           backgroundColor: Color(0xFF1B5E37),
-                          content: Text('The Privacy Policy ',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.white)),
-                          shape: BeveledRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4),
-                            topRight: Radius.circular(4),
-                          )),
+                          content: Text(
+                            'The Privacy Policy ',
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          ),
                         ),
                       );
                     },

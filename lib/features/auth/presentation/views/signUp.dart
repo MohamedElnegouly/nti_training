@@ -1,26 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/CustomAppBar.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/signUpViewBody.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:training_app/core/service/getIt.dart';
+import 'package:training_app/core/widgets/SnackBarBuild.dart';
+import 'package:training_app/features/auth/Domin/repo/auth_repo.dart';
+import 'package:training_app/features/auth/presentation/cubit/signup/signup_cubit.dart';
 import 'package:training_app/generated/l10n.dart';
 
+import 'widgets/CustomAppBar.dart';
+import 'widgets/signUpViewBody.dart';
 
-class Signup extends StatefulWidget {
+class Signup extends StatelessWidget {
   const Signup({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  Widget build(BuildContext context) {
+    //provide cubit to this root
+    return BlocProvider(
+      create: (context) => SignupCubit(getIt<AuthRepo>()),
+      child: Scaffold(
+        appBar: customAppBar(S.of(context).titleSignUp, () {
+          Navigator.pop(context);
+        }),
+        body: const SignUpViewBodyConsumer(),
+      ),
+    );
+  }
 }
 
-class _SignupState extends State<Signup> {
-
+class SignUpViewBodyConsumer extends StatelessWidget {
+  const SignUpViewBodyConsumer({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(S.of(context).titleSignUp, () {
-        Navigator.pop(context);
-      }),
-      body:const Signupviewbody(),
+    return BlocConsumer<SignupCubit , SignupState>(
+      //هنا بنفذ اكواد ملهاش دعوه بالبناء
+      listener: (context, state) {
+        if (state is SignupSuccess) {
+          snackBarbuild(context, 'تم عمل حساب بنجاح ');
+        }
+        if (state is SignupFailure) {
+          snackBarbuild(context, state.errMessage);
+        }
+      },
+      //UI هنا ده المسؤل عن بناء
+      builder: (context, state) {
+        return ModalProgressHUD(
+            inAsyncCall: state is SignupLoading, child: const Signupviewbody());
+      },
     );
   }
 }

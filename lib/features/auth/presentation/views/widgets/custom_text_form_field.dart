@@ -30,6 +30,13 @@ class CustomTextFormField extends StatelessWidget {
         key: fieldKey,
         onChanged: onChanged,
         onSaved: onsaved,
+        validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        } else {
+          return null;
+        }
+      },
         obscureText: obscureText ?? false,
         decoration: InputDecoration(
           hintText: hintText,

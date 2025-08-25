@@ -10,7 +10,7 @@ class UserModel {
   UserModel({required this.name, required this.email, required this.uId});
   factory UserModel.fromfirebaseUser(User user) {
     return UserModel(
-        name: user.displayName!, email: user.email!, uId: user.uid);
+        name: user.displayName ?? '', email: user.email!, uId: user.uid);
   }
 
   UserEntity toEntity() {

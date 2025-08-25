@@ -22,83 +22,93 @@ class _SignupviewbodyState extends State<Signupviewbody> {
   //refused sign up button until all data is valid
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
-  late bool change = false;
+  late bool change = true;
+  bool ischecked = false;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 24,
-          ),
-          CustomTextFormField(
-            hintText: S.of(context).fullName,
-            keyboardType: TextInputType.name,
-            onsaved: (value) {
-              name = value!;
-            },
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextFormField(
-            onsaved: (value) {
-              email = value!;
-            },
-            hintText: S.of(context).email,
-            keyboardType: TextInputType.emailAddress,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          CustomTextFormField(
-            onsaved: (value) {
-              password = value!;
-            },
-            hintText: S.of(context).password,
-            keyboardType: TextInputType.visiblePassword,
-            suffixIcon: IconButton(
-              icon: Icon(change ? Icons.visibility : Icons.visibility_off),
-              onPressed: () {
-                setState(() {
-                  change = !change;
-                });
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 24,
+            ),
+            CustomTextFormField(
+              hintText: S.of(context).fullName,
+              keyboardType: TextInputType.name,
+              onsaved: (value) {
+                name = value!;
               },
             ),
-            obscureText: change,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const Customcheckbox(),
-          const SizedBox(height: 16),
-          CustomButton(
-            text: S.of(context).ButtonSignUp,
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                if (change) {
-                  context.read<SignupCubit>().createUserWithEmailAndPassword(
-                      name: name, email: email, password: password);
-                } else {
-                  snackBarbuild(context, "وافق على الشروط والاحكام");
-                }
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-              }
-            },
-          ),
-          const SizedBox(height: 16),
-          CustomTextAfterButton(
-            text1: S.of(context).YouHaveAccount,
-            text2: S.of(context).login,
-            onTap: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const SignIn()),
+            const SizedBox(
+              height: 16,
             ),
-          ),
-        ],
+            CustomTextFormField(
+              onsaved: (value) {
+                email = value!;
+              },
+              hintText: S.of(context).email,
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            CustomTextFormField(
+              onsaved: (value) {
+                password = value!;
+              },
+              hintText: S.of(context).password,
+              keyboardType: TextInputType.visiblePassword,
+              suffixIcon: IconButton(
+                icon: Icon(change ? Icons.visibility : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    change = !change;
+                  });
+                },
+              ),
+              obscureText: change,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Customcheckbox(
+              isChecked: ischecked,
+              onChanged: (value) {
+                ischecked = value;
+              },
+            ),
+            const SizedBox(height: 16),
+            CustomButton(
+              text: S.of(context).ButtonSignUp,
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                  if (ischecked) {
+                    context.read<SignupCubit>().createUserWithEmailAndPassword(
+                        name: name, email: email, password: password);
+                  } else {
+                    snackBarbuild(context, 'يجب الموافقه علي الشروط والاحكام');
+                  }
+                } else {
+                  setState(() {
+                    autovalidateMode = AutovalidateMode.always;
+                  });
+                }
+              },
+            ),
+            const SizedBox(height: 16),
+            CustomTextAfterButton(
+              text1: S.of(context).YouHaveAccount,
+              text2: S.of(context).login,
+              onTap: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const SignIn()),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
