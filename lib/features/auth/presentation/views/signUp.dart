@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/features/auth/presentation/widgets/CustomAppBar.dart';
-import 'package:training_app/features/auth/presentation/widgets/signUpViewBody.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/CustomAppBar.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/signUpViewBody.dart';
 import 'package:training_app/generated/l10n.dart';
 
 

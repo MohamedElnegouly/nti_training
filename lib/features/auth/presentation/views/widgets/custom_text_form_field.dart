@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTextFormField extends StatelessWidget {
   final Key? fieldKey;
   final void Function(String)? onChanged;
+  final void Function(String?)? onsaved;
   final String hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -17,7 +18,8 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.keyboardType,
-    this.obscureText, 
+    this.obscureText,
+   this.onsaved, 
      });
 
   @override
@@ -27,6 +29,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         key: fieldKey,
         onChanged: onChanged,
+        onSaved: onsaved,
         obscureText: obscureText ?? false,
         decoration: InputDecoration(
           hintText: hintText,

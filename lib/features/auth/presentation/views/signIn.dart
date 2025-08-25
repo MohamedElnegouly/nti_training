@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:training_app/features/auth/presentation/views/signUp.dart';
-import 'package:training_app/features/auth/presentation/widgets/Or_line.dart';
-import 'package:training_app/features/auth/presentation/widgets/custom_button.dart';
-import 'package:training_app/features/auth/presentation/widgets/custom_google_button.dart';
-import 'package:training_app/features/auth/presentation/widgets/custom_text_form_field.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/Or_line.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/custom_google_button.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
 
-import '../widgets/CustomAppBar.dart';
-import '../widgets/custom_text.dart';
-import '../widgets/custom_text_after_button.dart';
+import 'widgets/CustomAppBar.dart';
+import 'widgets/custom_text.dart';
+import 'widgets/custom_text_after_button.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
