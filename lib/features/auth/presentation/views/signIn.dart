@@ -1,88 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/features/auth/presentation/views/signUp.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/Or_line.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/custom_google_button.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:training_app/core/service/getIt.dart';
+import 'package:training_app/features/auth/Domin/repo/auth_repo.dart';
+import 'package:training_app/features/auth/presentation/cubit/signIn/sign_in_cubit.dart';
 import 'package:training_app/generated/l10n.dart';
-
+import '../../../../core/widgets/SnackBarBuild.dart';
 import 'widgets/CustomAppBar.dart';
-import 'widgets/custom_text.dart';
-import 'widgets/custom_text_after_button.dart';
-
-class SignIn extends StatefulWidget {
+import 'widgets/signInViewBody.dart';
+class SignIn extends StatelessWidget {
   const SignIn({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create:(context)=>SignInCubit(getIt<AuthRepo>()),
+        child: Scaffold(
+      appBar: customAppBar(S.of(context).title, () {}),
+      body: const SignInViewBodyConsumer(),
+    ),
+    );
+     
+  }
 }
 
-class _SignInState extends State<SignIn> {
-  bool _isObscure = true;
+class SignInViewBodyConsumer extends StatelessWidget {
+  const SignInViewBodyConsumer({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(S.of(context).title, () {}),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const SizedBox(
-              height: 24,
-            ),
-            CustomTextFormField(
-              hintText: S.of(context).email,
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomTextFormField(
-              hintText: S.of(context).password,
-              suffixIcon: IconButton(
-                icon:
-                    Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-                onPressed: () {
-                  setState(() {
-                    _isObscure = !_isObscure;
-                  });
-                },
-              ),
-              obscureText: _isObscure,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            const CustomText(),
-            const SizedBox(
-              height: 33,
-            ),
-            CustomButton(
-              text: S.of(context).login,
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 33,
-            ),
-            CustomTextAfterButton(
-              text1: S.of(context).notHaveAccount,
-              text2: S.of(context).getOne,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Signup()),
-              ),
-            ),
-            const SizedBox(
-              height: 29,
-            ),
-            const OrLine(),
-            const SizedBox(
-              height: 16,
-            ),
-            const CustomGoogleButton(),
-          ],
-        ),
-      ),
-    );
+    return BlocConsumer<SignInCubit , SignInState>(
+       listener: (context , state){
+       if(state is SignInSuccess){
+         snackBarbuild(context, 'تم تسجيل الدخول بنجاح');
+      }
+      if(state is SignInFailure){
+        snackBarbuild(context, state.errMessage);
+      }
+       },
+    
+      builder: (context , state){
+         return ModalProgressHUD(
+          inAsyncCall: state is SignInLoading, child: const Signinviewbody());
+      }
+       );
   }
 }
