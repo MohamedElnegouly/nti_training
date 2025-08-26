@@ -28,6 +28,7 @@ class AuthRepoImplements extends AuthRepo {
     }
   }
 
+  @override
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
