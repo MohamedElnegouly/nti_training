@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
-
-
 class UserModel {
   final String name;
   final String email;
