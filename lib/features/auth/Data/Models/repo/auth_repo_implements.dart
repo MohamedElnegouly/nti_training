@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:training_app/core/errors/custom_Exception.dart';
 import 'package:training_app/core/errors/failure.dart';
 import 'package:training_app/core/service/dataBaseService.dart';
-import 'package:training_app/core/service/fireStoreService.dart';
 import 'package:training_app/core/service/firebase_auth.dart';
 import 'package:training_app/features/auth/Data/Models/user_model.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
@@ -68,5 +67,14 @@ class AuthRepoImplements extends AuthRepo {
   Future addUserData({required UserEntity user}) async {
     await databaseservice.addData(
         path: "Users", data: UserModel.fromEntity(user).toJson());
+  }
+
+  @override
+  Future<UserEntity> getUserData({required String uId}) async {
+    var data = await databaseservice.getData(path: 'Users', docId: uId)
+        as Map<String, dynamic>;
+    UserModel userModel = UserModel.fromJson(data);
+    UserEntity userEntity = userModel.toEntity();
+    return userEntity;
   }
 }
