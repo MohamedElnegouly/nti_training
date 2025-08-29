@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
+
 class UserModel {
   final String name;
   final String email;
@@ -10,8 +11,18 @@ class UserModel {
     return UserModel(
         name: user.displayName ?? '', email: user.email!, uId: user.uid);
   }
-
+  factory UserModel.fromEntity(UserEntity user) {
+    return UserModel(name: user.name, email: user.email, uId: user.uId);
+  }
   UserEntity toEntity() {
     return UserEntity(email: email, name: name, uId: uId);
+  }
+
+  toJson() {
+    return {
+      "name": name,
+      "email": email,
+      "uId": uId,
+    };
   }
 }
