@@ -53,9 +53,9 @@ class AuthRepoImplements extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
-     var userEntity = await getUserData(uId: user.uid);
+      var userEntity = await getUserData(uId: user.uid);
       //UserModel userModel = UserModel.fromfirebaseUser(user);
-     // UserEntity userEntity = userModel.toEntity();
+      // UserEntity userEntity = userModel.toEntity();
       return right(userEntity);
     } on CustomException catch (e) {
       return left(
@@ -67,7 +67,7 @@ class AuthRepoImplements extends AuthRepo {
   @override
   Future addUserData({required UserEntity user}) async {
     await databaseservice.addData(
-        path: "Users", data: UserModel.fromEntity(user).toJson());
+        path: "Users", data: UserModel.fromEntity(user).toJson() , docId: user.uId);
   }
 
   @override
