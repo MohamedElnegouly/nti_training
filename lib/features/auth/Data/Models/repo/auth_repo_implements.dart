@@ -53,8 +53,9 @@ class AuthRepoImplements extends AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
-      UserModel userModel = UserModel.fromfirebaseUser(user);
-      UserEntity userEntity = userModel.toEntity();
+     var userEntity = await getUserData(uId: user.uid);
+      //UserModel userModel = UserModel.fromfirebaseUser(user);
+     // UserEntity userEntity = userModel.toEntity();
       return right(userEntity);
     } on CustomException catch (e) {
       return left(
