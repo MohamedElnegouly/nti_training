@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/core/service/shared_pref.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'core/service/getIt.dart';
 import 'firebase_options.dart';
-void main()async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-   setup();
+  setup();
+  await SharedPref.init();
   // this is the entry point in the app (root)
   runApp(const NewApp());
 }
