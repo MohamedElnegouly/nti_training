@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -6,6 +7,7 @@ import 'package:training_app/core/errors/custom_Exception.dart';
 import 'package:training_app/core/errors/failure.dart';
 import 'package:training_app/core/service/dataBaseService.dart';
 import 'package:training_app/core/service/firebase_auth.dart';
+import 'package:training_app/core/service/shared_pref.dart';
 import 'package:training_app/core/utils/backEndPoint.dart';
 import 'package:training_app/features/auth/Data/Models/user_model.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
@@ -57,6 +59,7 @@ class AuthRepoImplements extends AuthRepo {
       var userEntity = await getUserData(uId: user.uid);
       //UserModel userModel = UserModel.fromfirebaseUser(user);
       // UserEntity userEntity = userModel.toEntity();
+      saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       return left(
@@ -68,15 +71,23 @@ class AuthRepoImplements extends AuthRepo {
   @override
   Future addUserData({required UserEntity user}) async {
     await databaseservice.addData(
-        path: Backendpoint.addUserData, data: UserModel.fromEntity(user).toJson() , docId: user.uId);
+        path: Backendpoint.addUserData,
+        data: UserModel.fromEntity(user).toJson(),
+        docId: user.uId);
   }
 
   @override
   Future<UserEntity> getUserData({required String uId}) async {
-    var data = await databaseservice.getData(path: Backendpoint.getUserData, docId: uId)
-        as Map<String, dynamic>;
+    var data = await databaseservice.getData(
+        path: Backendpoint.getUserData, docId: uId) as Map<String, dynamic>;
     UserModel userModel = UserModel.fromJson(data);
     UserEntity userEntity = userModel.toEntity();
     return userEntity;
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsondata = jsonEncode(UserModel.fromEntity(user).toJson());
+    await SharedPref.setString(Backendpoint.addUserDataToLocal, jsondata);
   }
 }
