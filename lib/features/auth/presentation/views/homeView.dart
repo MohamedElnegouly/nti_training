@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/customNavigationBar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -6,9 +7,8 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.green,
-      ),
+      bottomNavigationBar: const Customnavigationbar(),
+      body: Container(),
     );
   }
 }
