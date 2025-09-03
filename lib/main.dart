@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/core/helper/goGenerateRoute.dart';
 import 'package:training_app/core/service/shared_pref.dart';
-import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +24,7 @@ class NewApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -34,7 +34,7 @@ class NewApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
-      home: const SignIn(),
+      routerConfig: router,
     );
   }
 }

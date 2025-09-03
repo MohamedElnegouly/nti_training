@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_app/features/auth/presentation/cubit/signIn/sign_in_cubit.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/Or_line.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_button.dart';
@@ -84,10 +85,7 @@ class _SigninviewbodyState extends State<Signinviewbody> {
             CustomTextAfterButton(
               text1: S.of(context).notHaveAccount,
               text2: S.of(context).getOne,
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Signup()),
-              ),
+              onTap: () => context.go('/signUp'),
             ),
             const SizedBox(
               height: 29,

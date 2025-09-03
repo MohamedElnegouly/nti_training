@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_app/core/widgets/SnackBarBuild.dart';
 import 'package:training_app/features/auth/presentation/cubit/signup/signup_cubit.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/CustomCheckBox.dart';
@@ -102,10 +103,7 @@ class _SignupviewbodyState extends State<Signupviewbody> {
             CustomTextAfterButton(
               text1: S.of(context).YouHaveAccount,
               text2: S.of(context).login,
-              onTap: () => Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const SignIn()),
-              ),
+              onTap: () => context.go('/signIn'),
             ),
           ],
         ),

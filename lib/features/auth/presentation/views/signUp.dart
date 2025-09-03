@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:training_app/core/service/getIt.dart';
 import 'package:training_app/core/widgets/SnackBarBuild.dart';
@@ -20,7 +21,7 @@ class Signup extends StatelessWidget {
       create: (context) => SignupCubit(getIt<AuthRepo>()),
       child: Scaffold(
         appBar: customAppBar(S.of(context).titleSignUp, () {
-          Navigator.pop(context);
+          context.go('/signIn');
         }),
         body: const SignUpViewBodyConsumer(),
       ),
@@ -35,7 +36,7 @@ class SignUpViewBodyConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignupCubit , SignupState>(
+    return BlocConsumer<SignupCubit, SignupState>(
       //هنا بنفذ اكواد ملهاش دعوه بالبناء
       listener: (context, state) {
         if (state is SignupSuccess) {

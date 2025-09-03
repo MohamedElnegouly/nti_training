@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
@@ -12,7 +13,7 @@ class Forgetpassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(S.of(context).ForgetPasswordTitle, () {
-        Navigator.pop(context);
+        context.go('/signIn');
       }),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
