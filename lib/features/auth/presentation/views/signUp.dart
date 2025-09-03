@@ -41,6 +41,7 @@ class SignUpViewBodyConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccess) {
           snackBarbuild(context, 'تم عمل حساب بنجاح ');
+          context.go('/signIn');
         }
         if (state is SignupFailure) {
           snackBarbuild(context, state.errMessage);
