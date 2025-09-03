@@ -9,7 +9,6 @@ import 'package:training_app/features/auth/presentation/views/widgets/custom_tex
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_after_button.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
-import '../signUp.dart';
 
 class Signinviewbody extends StatefulWidget {
   const Signinviewbody({super.key});

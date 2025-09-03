@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:training_app/core/helper/goGenerateRoute.dart';
+import 'package:training_app/core/helper/goRouter.dart';
 import 'package:training_app/core/service/shared_pref.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

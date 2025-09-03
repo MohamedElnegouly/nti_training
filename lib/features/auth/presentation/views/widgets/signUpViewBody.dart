@@ -8,8 +8,6 @@ import 'package:training_app/features/auth/presentation/views/widgets/custom_tex
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:training_app/generated/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../signIn.dart';
-
 class Signupviewbody extends StatefulWidget {
   const Signupviewbody({super.key});
 
