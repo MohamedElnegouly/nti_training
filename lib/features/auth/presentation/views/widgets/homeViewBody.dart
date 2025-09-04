@@ -29,7 +29,17 @@ class Homeviewbody extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const Bestseller(),
-        const Customproduct(),
+        Expanded(
+          child: GridView.count(
+            crossAxisCount: 2, // عدد الأعمدة
+            crossAxisSpacing: 1, // المسافة بين الأعمدة
+            mainAxisSpacing: 20, // المسافة بين الصفوف
+            padding: const EdgeInsets.all(10),
+            children: List.generate(6, (index) {
+              return const CustomProduct();
+            }),
+          ),
+        ),
       ],
     );
   }

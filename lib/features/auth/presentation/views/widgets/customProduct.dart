@@ -1,114 +1,110 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Customproduct extends StatelessWidget {
-  const Customproduct({super.key});
+class CustomProduct extends StatelessWidget {
+  const CustomProduct({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Stack(
-      //clipBehavior: Clip.none,
       children: [
         Container(
-          width: 163,
-          height: 214,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 20,
-                color: Colors.grey.shade200,
-                spreadRadius: 0,
-                offset: const Offset(5, 5),
+          decoration: const BoxDecoration(),
+          child: AspectRatio(
+            aspectRatio: 12 / 13,
+            child: Card(
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero, // يخلي الزوايا حادة
               ),
-            ],
-          ),
-          child: Card(
-            elevation: 5,
-            //color: Colors.cyanAccent,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                // To make the elements align Start
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset('lib/core/assets/stroparypng.png',
-                      height: 120, width: 120),
-                  const Text(
-                    'بطيخ',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
+              color: const Color(0xFFF3F5F7),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: size.width * 0.04,
+                  vertical: size.height * 0.015,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        'lib/core/assets/stroparypng.png',
+                        height: size.height * 0.11,
+                        width: size.width * 0.25,
+                        //fit: BoxFit.contain,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        '20جنية ',
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        'بطيخ',
                         style: TextStyle(
-                          color: Color(0xFFF4A91F) /* Orange-500 */,
-                          fontSize: 13,
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.w700,
+                          color: Colors.grey,
+                          fontSize: size.width * 0.04,
                         ),
                       ),
-                      const Text(
-                        '/الكيلو',
-                        style: TextStyle(
-                          color: Color(0xFFF8C76D) /* Orange-300 */,
-                          fontSize: 13,
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.w600,
-                          height: 1.70,
+                    ),
+                    SizedBox(height: size.height * 0.005),
+                    Row(
+                      children: [
+                        Text(
+                          '20جنية ',
+                          style: TextStyle(
+                            color: const Color(0xFFF4A91F),
+                            fontSize: size.width * 0.035,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        width: 36,
-                        height: 36,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              left: 0,
-                              top: 0,
-                              child: Container(
-                                width: 36,
-                                height: 36,
-                                decoration: ShapeDecoration(
-                                  color: const Color(0xFF1B5E37),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(22),
+                        Text(
+                          '/الكيلو',
+                          style: TextStyle(
+                            color: const Color(0xFFF8C76D),
+                            fontSize: size.width * 0.032,
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const Spacer(),
+                        SizedBox(
+                          width: size.width * 0.1,
+                          height: size.width * 0.1,
+                          child: Stack(
+                            children: [
+                              Positioned.fill(
+                                child: Container(
+                                  decoration: ShapeDecoration(
+                                    color: const Color(0xFF1B5E37),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(22),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              left: 7,
-                              top: 8,
-                              child: Container(
-                                width: 20,
-                                height: 20,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(),
-                                child: const FaIcon(
+                              Center(
+                                child: FaIcon(
                                   FontAwesomeIcons.plus,
                                   color: Colors.white,
-                                  size: 20,
+                                  size: size.width * 0.05,
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
+        ),
+        const Positioned(
+          top: 12,
+          right: 12,
+          child: FaIcon(FontAwesomeIcons.heart),
         ),
       ],
     );
