@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/bestSeller.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/customHomeAppBar.dart';
+import 'package:training_app/features/auth/presentation/views/widgets/customProduct.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
 
 class Homeviewbody extends StatelessWidget {
@@ -9,6 +11,7 @@ class Homeviewbody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const CustomHomeAppBar(),
         const SizedBox(height: 16),
@@ -24,7 +27,9 @@ class Homeviewbody extends StatelessWidget {
           ),
           hintText: 'ابحث عن.......',
         ),
-        
+        const SizedBox(height: 20),
+        const Bestseller(),
+        const Customproduct(),
       ],
     );
   }
