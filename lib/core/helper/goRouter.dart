@@ -1,7 +1,7 @@
 
 import 'package:go_router/go_router.dart';
 import 'package:training_app/core/service/shared_pref.dart';
-import 'package:training_app/features/auth/presentation/views/homeView.dart';
+import 'package:training_app/features/Home/presentation/homeView.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/features/auth/presentation/views/signUp.dart';
 
