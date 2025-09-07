@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -5,8 +6,7 @@ import '../../../../Home/domin/entities/product_entity.dart';
 
 class CustomProduct extends StatelessWidget {
   const CustomProduct({super.key, required this.productEntity});
-   final ProductEntity productEntity;
-
+  final ProductEntity productEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -33,17 +33,25 @@ class CustomProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
-                      child: Image.asset(
-                        'lib/core/assets/stroparypng.png',
-                        height: size.height * 0.11,
-                        width: size.width * 0.25,
-                        //fit: BoxFit.contain,
+                        child: SizedBox(
+                      height: 100,
+                      width: 100,
+                      // Use CachedNetworkImage to cach the image and load it to play it if there is no internet
+                      child: CachedNetworkImage(
+                        imageUrl: productEntity.image!,
+                        errorWidget: (context, url, error) => Container(
+                          color: Colors.grey,
+                          height: 100,
+                          width: 100,
+                        ),
                       ),
-                    ),
+                    )),
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        'بطيخ',
+                        productEntity.title!,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: size.width * 0.04,
@@ -53,25 +61,31 @@ class CustomProduct extends StatelessWidget {
                     SizedBox(height: size.height * 0.005),
                     Row(
                       children: [
-                        Text(
-                          '20جنية ',
-                          style: TextStyle(
-                            color: const Color(0xFFF4A91F),
-                            fontSize: size.width * 0.035,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w700,
+                        Expanded(
+                          child: Text(
+                            '${productEntity.price} جنيه',
+                            style: TextStyle(
+                              color: const Color(0xFFF4A91F),
+                              fontSize: size.width * 0.035,
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
-                        Text(
-                          '/الكيلو',
-                          style: TextStyle(
-                            color: const Color(0xFFF8C76D),
-                            fontSize: size.width * 0.032,
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
-                          ),
+                        // Expanded(
+                        //   child: Text(
+                        //     '/الكيلو',
+                        //     style: TextStyle(
+                        //       color: const Color(0xFFF8C76D),
+                        //       fontSize: size.width * 0.032,
+                        //       fontFamily: 'Cairo',
+                        //       fontWeight: FontWeight.w600,
+                        //     ),
+                        //   ),
+                        // ),
+                        SizedBox(
+                          width: size.width * 0.02,
                         ),
-                        const Spacer(),
                         SizedBox(
                           width: size.width * 0.1,
                           height: size.width * 0.1,

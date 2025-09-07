@@ -8,32 +8,38 @@ import '../../../../Home/presentation/widgets/custom_cubit_grid_view.dart';
 class Homeviewbody extends StatelessWidget {
   const Homeviewbody({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const CustomHomeAppBar(),
-        const SizedBox(height: 16),
-        CustomTextFormField(
-          prefixIcon: const Icon(Icons.search),
-          suffixIcon: Transform.translate(
-            offset: const Offset(0, 10),
-            child: const FaIcon(
-              FontAwesomeIcons.sliders,
-              color: Color(0xFF949D9E),
-              size: 27,
+@override
+Widget build(BuildContext context) {
+  return CustomScrollView(
+    slivers: [
+      SliverToBoxAdapter(
+        child: Column(
+          children: [
+            const CustomHomeAppBar(),
+            const SizedBox(height: 16),
+            CustomTextFormField(
+              prefixIcon: const Icon(Icons.search),
+              suffixIcon: Transform.translate(
+                offset: const Offset(0, 10),
+                child: const FaIcon(
+                  FontAwesomeIcons.sliders,
+                  color: Color(0xFF949D9E),
+                  size: 27,
+                ),
+              ),
+              hintText: 'ابحث عن.......',
             ),
-          ),
-          hintText: 'ابحث عن.......',
+            const SizedBox(height: 20),
+            const Bestseller(),
+          ],
         ),
-        const SizedBox(height: 20),
-        const Bestseller(),
-        const Expanded(
-          child: CustomProductCubitGrid(),
-        ),
-      ],
-    );
-  }
+      ),
+      const SliverToBoxAdapter(
+        child: CustomProductCubitGrid(),
+      ),
+    ],
+  );
+}
+
 }
 

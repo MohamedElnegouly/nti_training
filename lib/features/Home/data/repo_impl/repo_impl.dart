@@ -9,19 +9,19 @@ import 'package:training_app/features/Home/domin/entities/product_entity.dart';
 import 'package:training_app/features/Home/domin/repo/productRepo.dart';
 
 class RepoImpl implements Productrepo {
-final  Apiservice apiservice;
+  final Apiservice apiservice;
 
   RepoImpl({required this.apiservice});
- 
 
- 
   @override
-  Future<Either<Failure, List<ProductEntity>>> getproduct()async {
-    try {// list هنا برجع كل المنتجات بس لازم اخليها ترجع ك
+  Future<Either<Failure, List<ProductEntity>>> getproduct() async {
+    try {
+      // list هنا برجع كل المنتجات بس لازم اخليها ترجع ك
       var data = await apiservice.get(endPoint: 'products') as List<dynamic>;
       // .map list لوحده من ال product  عشان يجيبلى كل
-      //as Map<String, dynamic>
-      final  products = data.map((e) => PorductModel.fromJson(e)).toList();
+      final products = data
+          .map((e) => PorductModel.fromJson(e as Map<String, dynamic>))
+          .toList();
       final productsEntity = products.map((e) => e.toEntity()).toList();
       return right(productsEntity);
     } catch (e) {
@@ -30,8 +30,7 @@ final  Apiservice apiservice;
         return Left(ServerFailure.fromDioException(e));
       } else {
         return Left(ServerFailure(message: "Something went wrong"));
-     }
-}
-
+      }
+    }
   }
 }

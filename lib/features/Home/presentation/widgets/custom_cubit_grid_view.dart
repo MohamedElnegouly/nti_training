@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:training_app/core/widgets/SnackBarBuild.dart';
 import 'package:training_app/features/Home/domin/entities/product_entity.dart';
 import 'package:training_app/features/Home/presentation/cubit/home_cubit_cubit.dart';
 import 'package:training_app/features/Home/presentation/widgets/CustomProductListView.dart';
@@ -22,6 +21,7 @@ class CustomProductCubitGrid extends StatelessWidget {
             child: Text(state.errMessage),
           );
         } else if (state is HomeCubitLoading) {
+          // Show skeletons while Loading
           return Skeletonizer(
             enabled: true,
             child: CustomProductListView(
