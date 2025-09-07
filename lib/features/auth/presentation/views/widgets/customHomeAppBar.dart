@@ -1,30 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/core/helper/getUserData.dart';
+import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/customRing.dart';
 
-class CustomHomeAppBar extends StatelessWidget {
-  const CustomHomeAppBar({
-    super.key,
-  });
+class CustomHomeAppBar extends StatefulWidget {
+  const CustomHomeAppBar({super.key});
 
   @override
+  State<CustomHomeAppBar> createState() => _CustomHomeAppBarState();
+}
+
+class _CustomHomeAppBarState extends State<CustomHomeAppBar> {
+UserEntity? user;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  Future<void> loadUserData() async {
+    var localUser = getDatafromLocal(); 
+    setState(() {
+      user = localUser;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 60, left: 16, right: 16),
+    return Padding(
+      padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
       child: SizedBox(
         height: 70,
         width: double.infinity,
-        //color: Colors.amber,
         child: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 30,
               backgroundImage: AssetImage('lib/core/assets/Avatar.png'),
             ),
-            SizedBox(width: 11),
+            const SizedBox(width: 11),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start, // عشان النصوص تبقى يمين
               children: [
-                Text(
+                const Text(
                   'صباح الخير !..',
                   textAlign: TextAlign.right,
                   style: TextStyle(
@@ -36,9 +55,9 @@ class CustomHomeAppBar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'أحمد مصطفي',
+                  user!.name ,
                   textAlign: TextAlign.right,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF0C0D0D),
                     fontSize: 16,
                     fontFamily: 'Cairo',
@@ -47,8 +66,8 @@ class CustomHomeAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
-            Customring(),
+            const Spacer(),
+            const Customring(),
           ],
         ),
       ),

@@ -90,4 +90,11 @@ class AuthRepoImplements extends AuthRepo {
     var jsondata = jsonEncode(UserModel.fromEntity(user).toJson());
     await SharedPref.setString(Backendpoint.addUserDataToLocal, jsondata);
   }
+
+    Future<UserEntity> getUserDatafromLocal() async {
+  var jsonString = SharedPref.getString(Backendpoint.addUserDataToLocal);
+    var data = jsonDecode(jsonString) as Map<String, dynamic>;
+    UserModel userModel = UserModel.fromJson(data);
+    return userModel.toEntity();
+}
 }
