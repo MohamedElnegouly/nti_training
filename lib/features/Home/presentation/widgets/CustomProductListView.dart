@@ -2,12 +2,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../auth/presentation/views/widgets/customProduct.dart';
+import '../../domin/entities/product_entity.dart';
 
 class CustomProductListView extends StatelessWidget {
   const CustomProductListView({
-    super.key,
+    super.key, required this.products,
   });
-
+ final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -16,7 +17,7 @@ class CustomProductListView extends StatelessWidget {
       mainAxisSpacing: 20, // المسافة بين الصفوف
       padding: const EdgeInsets.all(10),
       children: List.generate(6, (index) {
-        return const CustomProduct();
+        return CustomProduct(productEntity: products[index],);
       }),
     );
   }

@@ -3,8 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/bestSeller.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/customHomeAppBar.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
-
-import '../../../../Home/presentation/widgets/CustomProductListView.dart';
+import '../../../../Home/presentation/widgets/custom_cubit_grid_view.dart';
 
 class Homeviewbody extends StatelessWidget {
   const Homeviewbody({super.key});
@@ -31,9 +30,10 @@ class Homeviewbody extends StatelessWidget {
         const SizedBox(height: 20),
         const Bestseller(),
         const Expanded(
-          child: CustomProductListView(),
+          child: CustomProductCubitGrid(),
         ),
       ],
     );
   }
 }
+

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../Home/domin/entities/product_entity.dart';
+
 class CustomProduct extends StatelessWidget {
-  const CustomProduct({super.key});
+  const CustomProduct({super.key, required this.productEntity});
+   final ProductEntity productEntity;
+
 
   @override
   Widget build(BuildContext context) {
