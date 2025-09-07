@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/bestSeller.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/customHomeAppBar.dart';
-import 'package:training_app/features/auth/presentation/views/widgets/customProduct.dart';
 import 'package:training_app/features/auth/presentation/views/widgets/custom_text_form_field.dart';
+
+import '../../../../Home/presentation/widgets/CustomProductListView.dart';
 
 class Homeviewbody extends StatelessWidget {
   const Homeviewbody({super.key});
@@ -29,16 +30,8 @@ class Homeviewbody extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const Bestseller(),
-        Expanded(
-          child: GridView.count(
-            crossAxisCount: 2, // عدد الأعمدة
-            crossAxisSpacing: 1, // المسافة بين الأعمدة
-            mainAxisSpacing: 20, // المسافة بين الصفوف
-            padding: const EdgeInsets.all(10),
-            children: List.generate(6, (index) {
-              return const CustomProduct();
-            }),
-          ),
+        const Expanded(
+          child: CustomProductListView(),
         ),
       ],
     );

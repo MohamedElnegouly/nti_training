@@ -10,7 +10,9 @@ import 'package:training_app/features/Home/domin/repo/productRepo.dart';
 
 class RepoImpl implements Productrepo {
 final  Apiservice apiservice;
-  RepoImpl(this.apiservice);
+
+  RepoImpl({required this.apiservice});
+ 
 
  
   @override
