@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class Customnavigationbar extends StatefulWidget {
+class Customnavigationbar extends StatelessWidget {
   const Customnavigationbar({super.key});
 
-  @override
-  State<Customnavigationbar> createState() => _CustomnavigationbarState();
-}
-
-class _CustomnavigationbarState extends State<Customnavigationbar> {
-  int _selectedIndex = 0;
-
-  final List<Map<String, dynamic>> _items = [
-    {"icon": Icons.home, "label": "الرئيسية"},
-    {"icon": Icons.apps, "label": "الأقسام"},
-    {"icon": Icons.shopping_cart, "label": "السلة"},
-    {"icon": Icons.person, "label": "الحساب"},
+  final List<Map<String, dynamic>> _items = const [
+    {"icon": Icons.home, "label": "الرئيسية", "path": "/home"},
+    {"icon": Icons.apps, "label": "الأقسام", "path": "/categories"},
+    {"icon": Icons.shopping_cart, "label": "السلة", "path": "/cart"},
+    {"icon": Icons.person, "label": "الحساب", "path": "/profile"},
   ];
+
+  int _calculateSelectedIndex(BuildContext context) {
+    //هنا يتم العثور على المسار الحالى 
+    final location = GoRouterState.of(context).uri.toString();
+    if (location.startsWith('/categories')) return 1;
+    if (location.startsWith('/cart')) return 2;
+    if (location.startsWith('/profile')) return 3;
+    return 0; // default → home
+  }
 
   @override
   Widget build(BuildContext context) {
+    final selectedIndex = _calculateSelectedIndex(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       decoration: const BoxDecoration(
@@ -35,12 +40,15 @@ class _CustomnavigationbarState extends State<Customnavigationbar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(_items.length, (index) {
-          bool isSelected = _selectedIndex == index;
+          final item = _items[index];
+          final bool isSelected = selectedIndex == index;
+
           return GestureDetector(
             onTap: () {
-              setState(() {
-                _selectedIndex = index;
-              });
+              if (!isSelected) {
+                // route هنا يتم الانتقال لصفحه المطلوبه عن طريق الذهاب الى  
+                context.go(item["path"]); // 👈 الانتقال للـ route
+              }
             },
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
@@ -54,11 +62,11 @@ class _CustomnavigationbarState extends State<Customnavigationbar> {
                   : null,
               child: Row(
                 children: [
-                  if (isSelected) // النص يظهر فقط للعنصر المختار
+                  if (isSelected)
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                       child: Text(
-                        _items[index]["label"],
+                        item["label"],
                         style: TextStyle(
                           color: Colors.green.shade900,
                           fontWeight: FontWeight.bold,
@@ -70,7 +78,7 @@ class _CustomnavigationbarState extends State<Customnavigationbar> {
                     backgroundColor:
                         isSelected ? Colors.green : Colors.transparent,
                     child: Icon(
-                      _items[index]["icon"],
+                      item["icon"],
                       color: isSelected ? Colors.white : Colors.black54,
                     ),
                   ),

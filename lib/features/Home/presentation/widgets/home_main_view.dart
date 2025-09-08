@@ -1,7 +1,4 @@
-
 import 'package:flutter/material.dart';
-
-import '../../../auth/presentation/views/widgets/customNavigationBar.dart';
 import '../../../auth/presentation/views/widgets/homeViewBody.dart';
 
 class HomemainView extends StatelessWidget {
@@ -12,7 +9,6 @@ class HomemainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      bottomNavigationBar: Customnavigationbar(),
       body: Homeviewbody(),
     );
   }
