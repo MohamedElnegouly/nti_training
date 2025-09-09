@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:training_app/core/service/shared_pref.dart';
+import 'package:training_app/features/Home/domin/repo/productRepo.dart';
+import 'package:training_app/features/Home/presentation/cubit/home_cubit_cubit.dart';
 import 'package:training_app/features/Home/presentation/homeView.dart';
 import 'package:training_app/features/auth/presentation/views/signIn.dart';
 import 'package:training_app/features/auth/presentation/views/signUp.dart';
-
+import 'package:training_app/features/Home/presentation/widgets/home_main_view.dart';
+import '../../../core/service/getIt.dart';
 import '../../features/Home/presentation/widgets/card_view.dart';
 import '../../features/Home/presentation/widgets/category_view.dart';
 import '../../features/Home/presentation/widgets/profile_view.dart';
@@ -25,9 +29,13 @@ final GoRouter router = GoRouter(
     /// 🟢 ShellRoute الأساسي
     ShellRoute(
       builder: (context, state, child) {
-        return Scaffold(
-          body: child, // 👈 بيتغير حسب الـ route
-          bottomNavigationBar: const Customnavigationbar(),
+        return BlocProvider(
+               // ..getProduct to call the function directly once the cubit is created
+      create: (context)=>HomeCubitCubit(getIt<Productrepo>())..getProduct(),
+          child: Scaffold(
+            body: child, // 👈 بيتغير حسب الـ route
+            bottomNavigationBar: const Customnavigationbar(),
+          ),
         );
       },
       routes: [

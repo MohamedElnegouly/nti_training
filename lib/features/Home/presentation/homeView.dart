@@ -11,10 +11,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-      // ..getProduct to call the function directly once the cubit is created
-      create: (context)=>HomeCubitCubit(getIt<Productrepo>())..getProduct(),
-      child:const HomemainView() ,
-      );
+    return  const HomemainView();
   }
 }
