@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:training_app/features/Home/presentation/widgets/CustomcategoryAppBar.dart';
 import 'package:training_app/features/Home/presentation/widgets/custom_cubit_grid_view.dart';
+import 'package:training_app/features/Home/presentation/widgets/ourProducts.dart';
+import 'package:training_app/features/Home/presentation/widgets/ourProductsListView.dart';
 
 import '../../../auth/presentation/views/widgets/bestSeller.dart';
 import '../../../auth/presentation/views/widgets/custom_text_form_field.dart';
@@ -16,7 +18,9 @@ class CategoryView extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-             const Customcategoryappbar(title: 'المنتجات',),
+              const Customcategoryappbar(
+                title: 'المنتجات',
+              ),
               const SizedBox(height: 16),
               CustomTextFormField(
                 prefixIcon: const Icon(Icons.search),
@@ -31,6 +35,9 @@ class CategoryView extends StatelessWidget {
                 hintText: 'ابحث عن.......',
               ),
               const SizedBox(height: 20),
+              const Ourproducts(),
+              const SizedBox(height: 8),
+              const Ourproductslistview(),
               const Bestseller(),
             ],
           ),
