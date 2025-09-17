@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hive/hive.dart';
 import 'package:training_app/core/errors/custom_Exception.dart';
 import 'package:training_app/core/errors/failure.dart';
 import 'package:training_app/core/service/dataBaseService.dart';
 import 'package:training_app/core/service/firebase_auth.dart';
-import 'package:training_app/core/service/shared_pref.dart';
 import 'package:training_app/core/utils/backEndPoint.dart';
 import 'package:training_app/features/auth/Data/Models/user_model.dart';
 import 'package:training_app/features/auth/Domin/entities/user_entity.dart';
@@ -87,14 +86,18 @@ class AuthRepoImplements extends AuthRepo {
 
   @override
   Future saveUserData({required UserEntity user}) async {
-    var jsondata = jsonEncode(UserModel.fromEntity(user).toJson());
-    await SharedPref.setString(Backendpoint.addUserDataToLocal, jsondata);
+    //var jsondata = jsonEncode(UserModel.fromEntity(user).toJson());
+    //await SharedPref.setString(Backendpoint.addUserDataToLocal, jsondata);
+    var box = await Hive.openBox<UserEntity>('users');
+    await box.put('currentUser', user);
   }
 
-    Future<UserEntity> getUserDatafromLocal() async {
-  var jsonString = SharedPref.getString(Backendpoint.addUserDataToLocal);
-    var data = jsonDecode(jsonString) as Map<String, dynamic>;
-    UserModel userModel = UserModel.fromJson(data);
-    return userModel.toEntity();
-}
+  Future<UserEntity?> getUserDatafromLocal() async {
+    // var jsonString = SharedPref.getString(Backendpoint.addUserDataToLocal);
+    //   var data = jsonDecode(jsonString) as Map<String, dynamic>;
+    //   UserModel userModel = UserModel.fromJson(data);
+    //   return userModel.toEntity();
+    var box = await Hive.openBox<UserEntity>('users');
+     return box.get('currentUser'); 
+  }
 }
